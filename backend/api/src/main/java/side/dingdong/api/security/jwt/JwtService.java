@@ -46,16 +46,11 @@ public class JwtService {
 
     private SecretKey accessTokenSecretKey;
     private SecretKey refreshTokenSecretKey;
-    private JwtParser defaultRefreshTokenParser;
 
     @PostConstruct
     void init() {
         accessTokenSecretKey = generateSecretKey(jwtProperties.accessToken());
         refreshTokenSecretKey = generateSecretKey(jwtProperties.refreshToken());
-        defaultRefreshTokenParser = Jwts
-                .parser()
-                .verifyWith(refreshTokenSecretKey)
-                .build();
     }
 
     private SecretKey generateSecretKey(JwtProperty jwtProperty) {
@@ -221,26 +216,9 @@ public class JwtService {
     }
 
     @Transactional
-    public void banRefreshToken(Tsid userId, String refreshToken) {
-        Claims claims;
-        try {
-            Jws<Claims> jws = defaultRefreshTokenParser.parseSignedClaims(refreshToken);
-            claims = jws.getPayload();
-        } catch (ExpiredJwtException e) {
-            claims = e.getClaims();
-        }
-
-        String jti = claims.getId();
-        RefreshTokenId refreshTokenId = new RefreshTokenId();
-        refreshTokenId.setUserId(userId);
-        refreshTokenId.setJwtId(jti);
-
-        RefreshToken refreshTokenEntity = new RefreshToken();
-        refreshTokenEntity.setId(refreshTokenId);
-        refreshTokenEntity.setIssuedAt(claims.getIssuedAt());
-        refreshTokenEntity.setExpiredAt(claims.getExpiration());
-        refreshTokenEntity.setRevoked(true);
-
-        refreshTokenRepository.save(refreshTokenEntity);
+    public void banRefreshToken(Tsid userId) {
+        List<RefreshToken> refreshTokenList = refreshTokenRepository.findByUserId(userId);
+        refreshTokenList.forEach(refreshToken -> refreshToken.setRevoked(true));
+        refreshTokenRepository.saveAll(refreshTokenList);
     }
 }

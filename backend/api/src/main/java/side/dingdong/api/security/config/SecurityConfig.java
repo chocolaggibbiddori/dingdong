@@ -16,10 +16,14 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.CorsUtils;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import side.dingdong.api.security.jwt.JwtLogoutSuccessHandler;
+import side.dingdong.api.security.jwt.JwtService;
 
 @Configuration
 @RequiredArgsConstructor
 class SecurityConfig {
+
+    private final JwtService jwtService;
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -28,6 +32,14 @@ class SecurityConfig {
 
                 .cors(cors -> cors
                         .configurationSource(corsConfigurationSource()))
+
+                .logout(logout -> logout
+                        .logoutRequestMatcher(
+                                PathPatternRequestMatcher.withDefaults().matcher(HttpMethod.POST, "/api/v1/logout"))
+                        .clearAuthentication(true)
+                        .deleteCookies("refresh-token")
+                        .invalidateHttpSession(true)
+                        .logoutSuccessHandler(new JwtLogoutSuccessHandler(jwtService)))
 
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
