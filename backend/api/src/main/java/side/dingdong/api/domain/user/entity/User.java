@@ -16,9 +16,9 @@ import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import side.dingdong.api.common.UserAuthority;
 import side.dingdong.api.domain.BaseEntity;
 import side.dingdong.api.domain.TsidType;
-import side.dingdong.api.common.UserRole;
 
 @Entity
 @Table(name = "dingdong_user")
@@ -37,11 +37,11 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
-    @Column(name = "role", nullable = false)
+    @Column(name = "authority", nullable = false)
     @Enumerated(EnumType.STRING)
-    @ElementCollection(targetClass = UserRole.class)
-    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
-    private Set<UserRole> roles;
+    @ElementCollection(targetClass = UserAuthority.class)
+    @CollectionTable(name = "user_authority", joinColumns = @JoinColumn(name = "user_id"))
+    private Set<UserAuthority> authorities;
 
     @PrePersist
     public void prePersist() {

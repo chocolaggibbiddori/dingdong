@@ -55,7 +55,8 @@ class SecurityConfig {
         return RequestMatchers.anyOf(
                 CorsUtils::isPreFlightRequest,
                 PathPatternRequestMatcher.withDefaults().matcher("/error/**"),
-                PathPatternRequestMatcher.withDefaults().matcher(HttpMethod.POST, "/api/v1/users")
+                PathPatternRequestMatcher.withDefaults().matcher(HttpMethod.POST, "/api/v1/users"),
+                PathPatternRequestMatcher.withDefaults().matcher(HttpMethod.POST, "/api/v1/login")
         );
     }
 }
