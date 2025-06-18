@@ -11,7 +11,7 @@ import side.dingdong.api.domain.user.entity.User;
 
 @Service
 @RequiredArgsConstructor
-public class DingDongUserDetailsService implements UserDetailsService {
+public class DingdongUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
