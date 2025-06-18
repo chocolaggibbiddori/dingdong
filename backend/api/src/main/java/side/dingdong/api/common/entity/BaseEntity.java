@@ -1,4 +1,4 @@
-package side.dingdong.api.common;
+package side.dingdong.api.common.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

@@ -1,4 +1,4 @@
-package side.dingdong.api.common;
+package side.dingdong.api.common.entity;
 
 import com.github.f4b6a3.tsid.Tsid;
 import java.io.Serializable;

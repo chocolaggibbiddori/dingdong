@@ -1,4 +1,4 @@
-package side.dingdong.api.common;
+package side.dingdong.api.common.entity;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import side.dingdong.api.common.CommonSuccessDto;
+import side.dingdong.api.common.dto.CommonSuccessDto;
 import side.dingdong.api.domain.user.dto.LoginRequestDto;
 import side.dingdong.api.domain.user.dto.UserDto;
 import side.dingdong.api.security.jwt.JwtCustomClaimsDto;

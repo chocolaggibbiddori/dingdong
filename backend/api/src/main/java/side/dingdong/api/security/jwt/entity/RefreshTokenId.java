@@ -4,7 +4,7 @@ import com.github.f4b6a3.tsid.Tsid;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.Data;
-import side.dingdong.api.common.TsidType;
+import side.dingdong.api.common.entity.TsidType;
 
 @Data
 @Embeddable
