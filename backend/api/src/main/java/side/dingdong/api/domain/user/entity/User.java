@@ -16,8 +16,8 @@ import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import side.dingdong.api.domain.entity.BaseEntity;
-import side.dingdong.api.domain.entity.TsidType;
+import side.dingdong.api.domain.BaseEntity;
+import side.dingdong.api.domain.TsidType;
 import side.dingdong.api.common.UserRole;
 
 @Entity
