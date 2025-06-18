@@ -1,4 +1,4 @@
-package side.dingdong.api.domain;
+package side.dingdong.api.common;
 
 public record CommonSuccessDto(boolean success, String reason) {
 
