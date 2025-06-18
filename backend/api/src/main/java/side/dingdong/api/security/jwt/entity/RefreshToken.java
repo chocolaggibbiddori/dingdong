@@ -7,7 +7,7 @@ import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import side.dingdong.api.domain.BaseEntity;
+import side.dingdong.api.common.BaseEntity;
 
 @Entity
 @Getter
