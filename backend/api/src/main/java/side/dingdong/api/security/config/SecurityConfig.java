@@ -1,5 +1,7 @@
 package side.dingdong.api.security.config;
 
+import static side.dingdong.api.common.util.CommonPathPatternRequestMatchers.get;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,8 +46,7 @@ class SecurityConfig {
                         .securityContextRepository(new NullSecurityContextRepository()))
 
                 .logout(logout -> logout
-                        .logoutRequestMatcher(
-                                PathPatternRequestMatcher.withDefaults().matcher(HttpMethod.POST, "/api/v1/logout"))
+                        .logoutRequestMatcher(get(HttpMethod.POST, "/logout"))
                         .clearAuthentication(true)
                         .deleteCookies("refresh-token")
                         .invalidateHttpSession(true)
@@ -73,17 +74,17 @@ class SecurityConfig {
         return source;
     }
 
+    private RequestMatcher jwtAuthenticationRequestMatcher() {
+        return RequestMatchers.allOf(
+                RequestMatchers.not(permitAllRequestMatcher()),
+                get("/**"));
+    }
+
     private RequestMatcher permitAllRequestMatcher() {
         return RequestMatchers.anyOf(
                 CorsUtils::isPreFlightRequest,
                 PathPatternRequestMatcher.withDefaults().matcher("/error/**"),
-                PathPatternRequestMatcher.withDefaults().matcher(HttpMethod.POST, "/api/v1/users"),
-                PathPatternRequestMatcher.withDefaults().matcher(HttpMethod.POST, "/api/v1/login"));
-    }
-
-    private RequestMatcher jwtAuthenticationRequestMatcher() {
-        return RequestMatchers.allOf(
-                RequestMatchers.not(permitAllRequestMatcher()),
-                PathPatternRequestMatcher.withDefaults().matcher("/api/v1/**"));
+                get(HttpMethod.POST, "/users"),
+                get(HttpMethod.POST, "/login"));
     }
 }
