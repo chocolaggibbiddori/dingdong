@@ -1,31 +1,7 @@
-import { defineConfig, globalIgnores } from 'eslint/config';
-import globals from 'globals';
-import js from '@eslint/js';
-import pluginVue from 'eslint-plugin-vue';
-import pluginOxlint from 'eslint-plugin-oxlint';
-import skipFormatting from '@vue/eslint-config-prettier/skip-formatting';
+import vuetify from 'eslint-config-vuetify'
+import prettier from 'eslint-plugin-prettier/recommended'
 
-export default defineConfig([
-	{
-		name: 'app/files-to-lint',
-		files: ['**/*.{js,mjs,jsx,vue}'],
-		rules: {
-			'vue/component-name-in-template-casing': ['error', 'kebab-case']
-		}
-	},
-
-	globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
-
-	{
-		languageOptions: {
-			globals: {
-				...globals.browser
-			}
-		}
-	},
-
-	js.configs.recommended,
-	...pluginVue.configs['flat/essential'],
-	...pluginOxlint.configs['flat/recommended'],
-	skipFormatting
-]);
+export default [
+  vuetify(),
+  prettier
+]
