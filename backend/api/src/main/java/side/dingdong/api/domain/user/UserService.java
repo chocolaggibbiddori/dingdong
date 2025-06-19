@@ -34,16 +34,16 @@ public class UserService {
     }
 
     public UserDto getUserDto(String username) throws EntityNotFoundException {
-        User user = getCstnUser(username);
+        User user = getUser(username);
         return userMapper.mapToUserDto(user);
     }
 
     public boolean checkPassword(String username, String rawPassword) throws EntityNotFoundException {
-        String encodedPassword = getCstnUser(username).getPassword();
+        String encodedPassword = getUser(username).getPassword();
         return passwordEncoder.matches(rawPassword, encodedPassword);
     }
 
-    private User getCstnUser(String username) {
+    private User getUser(String username) {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new EntityNotFoundException("No such user: " + username));
     }
