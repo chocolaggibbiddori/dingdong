@@ -109,8 +109,7 @@ public class JwtService {
 
         List<RefreshToken> refreshTokenList = refreshTokenRepository.findByUserId(userId);
         refreshTokenList.forEach(refreshToken -> refreshToken.setRevoked(true));
-        refreshTokenList.add(refreshTokenEntity);
-        refreshTokenRepository.saveAll(refreshTokenList);
+        refreshTokenRepository.save(refreshTokenEntity);
 
         return jwtBuilder.compact();
     }
@@ -219,6 +218,5 @@ public class JwtService {
     public void banRefreshToken(Tsid userId) {
         List<RefreshToken> refreshTokenList = refreshTokenRepository.findByUserId(userId);
         refreshTokenList.forEach(refreshToken -> refreshToken.setRevoked(true));
-        refreshTokenRepository.saveAll(refreshTokenList);
     }
 }
