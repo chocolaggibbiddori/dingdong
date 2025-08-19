@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'BeVietnamPro-Thin';
+  src: url('@/assets/fonts/BeVietnamPro-Thin.woff2');
+}
+
+.font-be-vietnam-pro-thin {
+  font-family: 'BeVietnamPro-Thin', sans-serif;
+}
+
+@font-face {
+  font-family: 'KaiseiDecol-Regular';
+  src: url('@/assets/fonts/KaiseiDecol-Regular.ttf');
+}
+
+.font-kaisei-decol-regular {
+  font-family: 'KaiseiDecol-Regular', sans-serif;
+}
+
+@font-face {
+  font-family: 'KOHINanumOTF_LIGHT';
+  src: url('@/assets/fonts/KOHINanumOTF_LIGHT.otf');
+}
+
+.font-kohi-nanum-otf-light {
+  font-family: 'KOHINanumOTF_LIGHT', sans-serif;
+}
+
+@font-face {
+  font-family: 'OpenSans-Light';
+  src: url('@/assets/fonts/OpenSans-Light.ttf');
+}
+
+.font-open-sans-light {
+  font-family: 'OpenSans-Light', sans-serif;
+}

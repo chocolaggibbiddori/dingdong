@@ -16,12 +16,11 @@
 
   <v-spacer />
 
-  <v-btn
-    class="text-none"
-    variant="text"
-  >
-    Login
-  </v-btn>
+  <button class="mr-5 font-be-vietnam-pro-thin dingdong-text-button">Login</button>
 </template>
 
-<style scoped></style>
+<style scoped>
+.font-be-vietnam-pro-thin {
+  font-size: 16pt;
+}
+</style>

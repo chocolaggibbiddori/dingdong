@@ -1,0 +1,24 @@
+.dingdong-text-button {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding: 8px 4px;
+  transition: all 0.3s ease;
+}
+
+.dingdong-text-button::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 50%;
+  background-color: currentColor;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.dingdong-text-button:hover::after {
+  width: 100%;
+}
