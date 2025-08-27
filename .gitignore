@@ -4,3 +4,6 @@
 *.iml
 *.ipr
 .run
+*.pem
+*.key
+*.key.pub
