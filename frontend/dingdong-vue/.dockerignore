@@ -48,12 +48,6 @@ Thumbs.db
 .gitignore
 .gitattributes
 
-# GitHub 및 문서
-.github
-README.md
-CHANGELOG.md
-LICENSE
-
 # 빌드 결과물 (이미 빌드 스테이지에서 처리됨)
 dist
 build
