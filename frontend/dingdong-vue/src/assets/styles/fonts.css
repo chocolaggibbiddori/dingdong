@@ -17,12 +17,12 @@
 }
 
 @font-face {
-  font-family: 'KOHINanumOTF_LIGHT';
-  src: url('@/assets/fonts/KOHINanumOTF_LIGHT.otf');
+  font-family: 'KOHINanumOTF_Light';
+  src: url('@/assets/fonts/KOHINanumOTF_Light.otf');
 }
 
 .font-kohi-nanum-otf-light {
-  font-family: 'KOHINanumOTF_LIGHT', sans-serif;
+  font-family: 'KOHINanumOTF_Light', sans-serif;
 }
 
 @font-face {
