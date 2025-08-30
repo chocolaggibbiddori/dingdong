@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  dingdong-vue:
+    image: didrkd684/dingdong-vue:frontend-dev-latest
+    container_name: dingdong-vue
+    ports:
+      - "80:80"
+    networks:
+      - dingdong-network
+
+networks:
+  dingdong-network:
+    driver: bridge

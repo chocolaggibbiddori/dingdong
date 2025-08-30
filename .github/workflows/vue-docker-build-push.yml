@@ -111,6 +111,21 @@ jobs:
             docker push $tag
           done
 
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    name: Deploy to Oracle Cloud
+
+    steps:
+      - name: Deploy to Oracle Cloud Instance
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.ORACLE_HOST }}
+          username: ${{ secrets.ORACLE_USERNAME }}
+          key: ${{ secrets.ORACLE_SSH_KEY }}
+          script: |
+            docker compose up -d --pull always
+
   deploy-notification:
     needs: build-and-push
     runs-on: ubuntu-latest
