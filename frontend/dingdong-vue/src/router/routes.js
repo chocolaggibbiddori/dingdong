@@ -9,6 +9,11 @@ export default [
         path: '',
         name: 'HomeMain',
         component: () => import('@/views/home/HomeMain.vue')
+      },
+      {
+        path: 'login',
+        name: 'LoginMain',
+        component: () => import('@/views/home/LoginMain.vue')
       }
     ]
   }
