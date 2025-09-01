@@ -13,10 +13,11 @@ import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
         cols="12"
         sm="3"
       >
-        <h1 class="mb-3">Login</h1>
+        <h1 class="mb-3 font-kaisei-decol-regular">Login</h1>
 
         <v-form>
           <v-text-field
+            class="font-kohi-nanum-otf-light"
             label="아이디"
             variant="outlined"
             rounded="lg"
@@ -24,6 +25,7 @@ import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
           />
 
           <v-text-field
+            class="font-kohi-nanum-otf-light"
             label="비밀번호"
             variant="outlined"
             rounded="lg"
@@ -31,6 +33,7 @@ import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
           />
 
           <v-btn
+            class="font-kohi-nanum-otf-light"
             size="x-large"
             block
             rounded="lg"
@@ -43,15 +46,15 @@ import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
 
         <div class="mt-2">
           <router-link-button
-            class="mx-4"
+            class="mx-3 font-kohi-nanum-otf-light"
             text="아이디 찾기"
           />
           <router-link-button
-            class="mx-4"
+            class="mx-3 font-kohi-nanum-otf-light"
             text="비밀번호 찾기"
           />
           <router-link-button
-            class="mx-4"
+            class="mx-3 font-kohi-nanum-otf-light"
             text="회원가입"
           />
         </div>
