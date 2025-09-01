@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
+</script>
 
 <template>
   <v-container
@@ -10,9 +12,20 @@
         class="d-flex flex-column justify-space-between"
         cols="5"
       >
-        <button class="font-be-vietnam-pro-thin dingdong-text-button">budget plan</button>
-        <button class="font-be-vietnam-pro-thin dingdong-text-button">schedule</button>
-        <button class="font-be-vietnam-pro-thin dingdong-text-button">etc</button>
+        <router-link-button
+          class="font-be-vietnam-pro-thin"
+          text="budget plan"
+        />
+
+        <router-link-button
+          class="font-be-vietnam-pro-thin"
+          text="schedule"
+        />
+
+        <router-link-button
+          class="font-be-vietnam-pro-thin"
+          text="etc"
+        />
       </v-col>
 
       <v-divider

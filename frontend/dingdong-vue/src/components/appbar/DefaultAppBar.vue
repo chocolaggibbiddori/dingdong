@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
+</script>
 
 <template>
   <router-link to="/">
@@ -21,26 +23,15 @@
 
   <v-spacer />
 
-  <router-link
-    class="mr-5 font-be-vietnam-pro-thin dingdong-text-button login-link"
+  <router-link-button
+    class="mr-5 font-be-vietnam-pro-thin"
+    text="Login"
     to="login"
-  >
-    Login
-  </router-link>
+  />
 </template>
 
 <style scoped>
 .font-be-vietnam-pro-thin {
   font-size: 16pt;
-}
-
-.login-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.login-link:hover {
-  text-decoration: none;
-  color: inherit;
 }
 </style>

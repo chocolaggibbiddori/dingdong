@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
+</script>
 
 <template>
   <v-container
@@ -40,9 +42,18 @@
         </v-form>
 
         <div class="mt-2">
-          <button class="mx-4 dingdong-text-button">아이디 찾기</button>
-          <button class="mx-4 dingdong-text-button">비밀번호 찾기</button>
-          <button class="mx-4 dingdong-text-button">회원가입</button>
+          <router-link-button
+            class="mx-4"
+            text="아이디 찾기"
+          />
+          <router-link-button
+            class="mx-4"
+            text="비밀번호 찾기"
+          />
+          <router-link-button
+            class="mx-4"
+            text="회원가입"
+          />
         </div>
       </v-col>
     </v-row>
