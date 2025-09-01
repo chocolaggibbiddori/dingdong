@@ -7,13 +7,13 @@ export default [
     children: [
       {
         path: '',
-        name: 'HomeMain',
-        component: () => import('@/views/home/HomeMain.vue')
+        name: 'MainHomeView',
+        component: () => import('@/views/home/MainHomeView.vue')
       },
       {
         path: 'login',
-        name: 'LoginMain',
-        component: () => import('@/views/home/LoginMain.vue')
+        name: 'LoginView',
+        component: () => import('@/views/home/LoginView.vue')
       }
     ]
   }
