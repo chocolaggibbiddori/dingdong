@@ -1,6 +1,5 @@
 <script setup>
 import DefaultAppBar from '@/components/appbar/DefaultAppBar.vue';
-import { RouterView } from 'vue-router';
 </script>
 
 <template>
