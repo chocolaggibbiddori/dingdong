@@ -1,5 +1,5 @@
 <script setup>
-import DefaultAppBar from '@/components/appbar/DefaultAppBar.vue';
+import DefaultAppBar from '@/components/layout/DefaultAppBar.vue';
 </script>
 
 <template>
