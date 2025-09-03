@@ -10,8 +10,7 @@ import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
     <v-row class="mb-15 justify-center">
       <v-col
         class="text-center"
-        cols="12"
-        sm="3"
+        cols="3"
       >
         <h1 class="mb-3 font-kaisei-decol-regular">Login</h1>
 
@@ -45,16 +44,19 @@ import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
           <router-link-button
             class="mx-3"
             text="아이디 찾기"
+            to="id/help"
           />
 
           <router-link-button
             class="mx-3"
             text="비밀번호 찾기"
+            to="password/help"
           />
 
           <router-link-button
             class="mx-3"
             text="회원가입"
+            to="signup"
           />
         </div>
       </v-col>
