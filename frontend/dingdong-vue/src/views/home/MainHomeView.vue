@@ -15,16 +15,19 @@ import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
         <router-link-button
           class="font-be-vietnam-pro-thin"
           text="budget plan"
+          to="budgetplan"
         />
 
         <router-link-button
           class="font-be-vietnam-pro-thin"
           text="schedule"
+          to="schedule"
         />
 
         <router-link-button
           class="font-be-vietnam-pro-thin"
           text="etc"
+          to="etc"
         />
       </v-col>
 
