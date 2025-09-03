@@ -14,6 +14,11 @@ export default [
         path: 'login',
         name: 'LoginView',
         component: () => import('@/views/home/LoginView.vue')
+      },
+      {
+        path: 'signup',
+        name: 'SignupView',
+        component: () => import('@/views/home/SignupView.vue')
       }
     ]
   }
