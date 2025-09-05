@@ -10,9 +10,11 @@ import LabelFormElement from '@/components/form/LabelFormElement.vue';
     <v-row class="mb-15 justify-center">
       <v-col
         class="text-center"
-        cols="3"
+        cols="12"
+        sm="6"
+        md="4"
       >
-        <h1 class="mb-3 font-kaisei-decol-regular">Create account</h1>
+        <h2 class="mb-3 font-kaisei-decol-regular">Create account</h2>
 
         <v-form class="font-kohi-nanum-otf-light">
           <label-form-element

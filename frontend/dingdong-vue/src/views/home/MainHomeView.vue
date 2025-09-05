@@ -70,7 +70,7 @@ import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
 }
 
 .font-be-vietnam-pro-thin {
-  font-size: 24pt;
+  font-size: 23pt;
 }
 
 .font-kaisei-decol-regular {

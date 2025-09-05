@@ -10,9 +10,11 @@ import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
     <v-row class="mb-15 justify-center">
       <v-col
         class="text-center"
-        cols="3"
+        cols="12"
+        sm="6"
+        md="4"
       >
-        <h1 class="mb-3 font-kaisei-decol-regular">Login</h1>
+        <h2 class="mb-3 font-kaisei-decol-regular">Login</h2>
 
         <v-form class="font-kohi-nanum-otf-light">
           <v-text-field
@@ -64,4 +66,8 @@ import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
   </v-container>
 </template>
 
-<style scoped></style>
+<style scoped>
+div.font-kohi-nanum-otf-light {
+  font-size: 13px;
+}
+</style>
