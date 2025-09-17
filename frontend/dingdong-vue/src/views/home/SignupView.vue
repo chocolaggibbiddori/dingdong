@@ -62,6 +62,7 @@ const step = ref(1);
               >
                 <v-btn-toggle
                   class="ga-6"
+                  style="height: 56px; margin-bottom: 22px"
                   variant="outlined"
                   mandatory
                 >
@@ -86,8 +87,6 @@ const step = ref(1);
                   </v-btn>
                 </v-btn-toggle>
               </label-form-element>
-
-              <empty-box :height="30" />
             </v-window-item>
 
             <v-window-item :value="2">
@@ -158,10 +157,8 @@ const step = ref(1);
                 />
               </label-form-element>
 
-              <empty-box height="37.6" />
-
               <v-btn
-                style="height: 48px"
+                style="height: 56px; margin-top: 30px; margin-bottom: 22px"
                 block
                 variant="outlined"
                 rounded="lg"
@@ -169,8 +166,6 @@ const step = ref(1);
               >
                 가입하기
               </v-btn>
-
-              <empty-box height="22" />
             </v-window-item>
           </v-window>
         </v-form>
