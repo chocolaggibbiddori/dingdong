@@ -36,7 +36,7 @@ import RouterLinkButton from '@/components/button/RouterLinkButton.vue';
             block
             rounded="lg"
             elevation="0"
-            color="#c8e6c9"
+            color="primary"
           >
             로그인
           </v-btn>
