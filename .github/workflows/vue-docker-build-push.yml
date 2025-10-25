@@ -1,6 +1,7 @@
 name: Build and Push Dingdong Vue Docker Image
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - dev
