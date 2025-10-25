@@ -1,9 +1,44 @@
 <script setup>
+import { computed, reactive, ref } from 'vue';
+import commonApi from '@/apis/home/commonApi.js';
 import LabelFormElement from '@/components/form/LabelFormElement.vue';
-import EmptyBox from '@/components/layout/EmptyBox.vue';
-import { ref } from 'vue';
+import EmailVerifyButton from '@/components/button/EmailVerifyButton.vue';
+import { isValidKoreanName } from '@/utils/textUtil.js';
 
 const step = ref(1);
+const showPassword = ref(false);
+
+const formData = reactive({
+  name: '',
+  email: '',
+  sex: '',
+  weddingDate: '',
+  weddingRegion: '',
+  nickname: '',
+  username: '',
+  password: ''
+});
+
+const possibleNext1 = computed(() => {
+  return isValidKoreanName(formData.name) && emailDisabled.value && !!formData.sex;
+});
+const possibleNext = computed(() => {
+  if (step.value === 1) {
+    return possibleNext1.value;
+  }
+
+  return true;
+});
+
+const nameRule = name => isValidKoreanName(name) || '이름을 입력해 주세요.';
+
+const emailDisabled = ref(false);
+
+const regionList = ref([]);
+// prettier-ignore
+commonApi
+  .getRegionList()
+  .then(({ codeList }) => (regionList.value = codeList));
 </script>
 
 <template>
@@ -28,9 +63,12 @@ const step = ref(1);
                 required
               >
                 <v-text-field
+                  v-model="formData.name"
+                  class="text-left"
                   variant="outlined"
                   rounded="lg"
                   type="text"
+                  :rules="[nameRule]"
                 />
               </label-form-element>
 
@@ -40,19 +78,17 @@ const step = ref(1);
               >
                 <div class="d-flex ga-2">
                   <v-text-field
+                    v-model="formData.email"
+                    :disabled="emailDisabled"
                     variant="outlined"
                     rounded="lg"
                     type="text"
                   />
 
-                  <v-btn
-                    height="56"
-                    variant="outlined"
-                    rounded="lg"
-                    color="grey"
-                  >
-                    인증
-                  </v-btn>
+                  <email-verify-button
+                    v-model="formData.email"
+                    @verified="emailDisabled = true"
+                  />
                 </div>
               </label-form-element>
 
@@ -61,6 +97,7 @@ const step = ref(1);
                 required
               >
                 <v-btn-toggle
+                  v-model="formData.sex"
                   class="ga-6"
                   style="height: 56px; margin-bottom: 22px"
                   variant="outlined"
@@ -68,7 +105,7 @@ const step = ref(1);
                 >
                   <v-btn
                     class="flex-grow-1"
-                    value="female"
+                    value="FEMALE"
                     rounded="lg"
                     color="red"
                     border="e"
@@ -78,7 +115,7 @@ const step = ref(1);
 
                   <v-btn
                     class="flex-grow-1"
-                    value="male"
+                    value="MALE"
                     rounded="lg"
                     color="blue"
                     border="s"
@@ -95,6 +132,7 @@ const step = ref(1);
                 required
               >
                 <v-date-input
+                  v-model="formData.weddingDate"
                   input-format="yyyy/mm/dd"
                   variant="outlined"
                   rounded="lg"
@@ -108,6 +146,8 @@ const step = ref(1);
                 required
               >
                 <v-select
+                  v-model="formData.weddingRegion"
+                  :items="regionList"
                   variant="outlined"
                   rounded="lg"
                 />
@@ -115,6 +155,7 @@ const step = ref(1);
 
               <label-form-element text="별명">
                 <v-text-field
+                  v-model="formData.nickname"
                   variant="outlined"
                   rounded="lg"
                   type="text"
@@ -129,6 +170,7 @@ const step = ref(1);
               >
                 <div class="d-flex ga-2">
                   <v-text-field
+                    v-model="formData.username"
                     variant="outlined"
                     rounded="lg"
                     type="text"
@@ -150,10 +192,14 @@ const step = ref(1);
                 required
               >
                 <v-text-field
+                  v-model="formData.password"
+                  :class="{ 'font-sans-serif': !showPassword }"
                   placeholder="8~10글자"
                   variant="outlined"
                   rounded="lg"
-                  type="text"
+                  :type="showPassword ? 'text' : 'password'"
+                  :append-inner-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                  @click:append-inner="showPassword = !showPassword"
                 />
               </label-form-element>
 
@@ -182,6 +228,7 @@ const step = ref(1);
           <button
             v-if="step < 3"
             class="font-kaisei-decol-regular ms-auto"
+            :disabled="!possibleNext"
             @click="step++"
           >
             Next
@@ -192,4 +239,8 @@ const step = ref(1);
   </v-container>
 </template>
 
-<style scoped></style>
+<style scoped>
+.font-sans-serif {
+  font-family: sans-serif;
+}
+</style>

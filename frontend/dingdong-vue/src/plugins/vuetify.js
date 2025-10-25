@@ -22,7 +22,9 @@ export const vuetify = createVuetify({
     themes: {
       light: {
         colors: {
-          primary: '#c8e6c9'
+          primary: '#e4f0d5',
+          secondary: '#9e9e9e',
+          tertiary: '#595959'
         }
       }
     }
