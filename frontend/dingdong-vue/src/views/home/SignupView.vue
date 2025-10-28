@@ -22,15 +22,23 @@ const formData = reactive({
 const possibleNext1 = computed(() => {
   return isValidKoreanName(formData.name) && emailDisabled.value && !!formData.sex;
 });
+const possibleNext2 = computed(() => {
+  return !!formData.weddingDate && !!formData.weddingRegion;
+});
 const possibleNext = computed(() => {
   if (step.value === 1) {
     return possibleNext1.value;
+  }
+
+  if (step.value === 2) {
+    return possibleNext2.value;
   }
 
   return true;
 });
 
 const nameRule = name => isValidKoreanName(name) || '이름을 입력해 주세요.';
+const weddingDateRule = date => new Date(date) >= new Date().setHours(0, 0, 0, 0);
 
 const emailDisabled = ref(false);
 
@@ -133,6 +141,8 @@ commonApi
               >
                 <v-date-input
                   v-model="formData.weddingDate"
+                  class="text-left"
+                  :allowed-dates="weddingDateRule"
                   input-format="yyyy/mm/dd"
                   variant="outlined"
                   rounded="lg"
